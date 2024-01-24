@@ -10,7 +10,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'mongodb+srv://luck:hello12345@cluster0.pvlaz.mongodb.net/test';
+  'mongodb+srv://password12345:password12345@cluster0.ykppt.mongodb.net/test';
 
 const app = express();
 const store = new MongoDBStore({
@@ -37,7 +37,7 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  User.findById('610b90eed2c71acd501a96ee')
+  User.findById('6166fe8729532a3aec6eab8a')
     .then(user => {
       req.user = user;
       next();
@@ -54,18 +54,6 @@ app.use(errorController.get404);
 mongoose
   .connect(MONGODB_URI)
   .then(result => {
-    User.findOne().then(user => {
-      if (!user) {
-        const user = new User({
-          name: 'Max',
-          email: 'max@test.com',
-          cart: {
-            items: []
-          }
-        });
-        user.save();
-      }
-    });
     app.listen(3000);
   })
   .catch(err => {

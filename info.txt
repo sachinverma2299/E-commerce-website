@@ -1,0 +1,3 @@
+this is the main file for our project
+to connect it with mongo db
+1) we open mongodb compass and enter the url
